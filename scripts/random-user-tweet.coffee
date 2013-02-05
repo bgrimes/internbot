@@ -36,3 +36,10 @@ module.exports = (robot) ->
       return console.log err if err
       tweet = _(reply).chain().shuffle().first().value()?.text
       msg.send tweet
+
+  robot.hear /^!twitter #(\w+)/, (msg) ->
+    T.get 'search/tweets', { q: "##{msg.match[1]}" }, (err, reply) ->
+      return console.log err if err
+      console.log(reply)
+      tweet = _(reply.statuses).chain().shuffle().first().value()?.text
+      msg.send tweet
