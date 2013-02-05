@@ -18,6 +18,7 @@ Commands = [
   { command: /^!bender/, user: 'bender' }
   { command: /^!deathstar/, user: 'DeathStarPR' }
   { command: /^!yoda/, user: 'yoda' }
+  { command: /^!couragewolf/, user: 'courage_wolf' }
 ]
 
 module.exports = (robot) ->
