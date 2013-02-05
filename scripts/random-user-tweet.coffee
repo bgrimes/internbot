@@ -31,7 +31,6 @@ module.exports = (robot) ->
 
 
   robot.hear /^!twitter (\w+)/, (msg) ->
-    console.log 'Fetching recent tweets', msg.match[1]
     T.get 'statuses/user_timeline', { screen_name: msg.match[1], exclude_replies: 'true' }, (err, reply) ->
       return console.log err if err
       tweet = _(reply).chain().shuffle().first().value()?.text
@@ -40,6 +39,11 @@ module.exports = (robot) ->
   robot.hear /^!twitter #(\w+)/, (msg) ->
     T.get 'search/tweets', { q: "##{msg.match[1]}" }, (err, reply) ->
       return console.log err if err
-      console.log(reply)
       tweet = _(reply.statuses).chain().shuffle().first().value()?.text
       msg.send tweet
+
+  robot.hear /^!trends/, (msg) ->
+    T.get 'trends/place', { id: '2450022' }, (err, reply) ->
+      return console.log err if err
+      trends = _(reply[0]?.trends).chain().pluck('name').filter((name) -> /^#/.test name).value()
+      msg.send trends.join ', '
