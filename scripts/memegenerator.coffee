@@ -19,9 +19,9 @@ module.exports = (robot) ->
       }
     }
     Request.get params, (err, res, body) ->
-      console.log("err", err) if err
+      return console.log("err", err) if err
       body = JSON.parse body
-      console.log(body) if not body.result
+      return console.log(body) if not body.result
 
       image = "http://cdn.memegenerator.net/instances/400x/#{body.result.instanceID}.jpg"
       msg.send image
