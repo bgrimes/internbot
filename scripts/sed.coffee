@@ -34,6 +34,6 @@ module.exports = (robot) ->
       else
         return false
 
-    return if _(last_twenty[origUser]).any messageMatchSearch
+    return if _(last_twenty[targetUser]).any messageMatchSearch
     return if _(last_twenty["*"]).any messageMatchSearch
     pushMessage origUser, message
