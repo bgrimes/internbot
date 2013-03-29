@@ -19,6 +19,13 @@ memes = [
     text0: (match) -> match[1]
     text1: (match) -> "ALL THE " + match[2]
   }
+  {
+    trigger: /(.+) huge mistake/i
+    generatorID: 1823497
+    imageID: 7547342
+    text0: (match) -> match[1]
+    text1: "HUGE MISTAKE"
+  }
 ]
 
 # Courage wolf: 303
@@ -26,6 +33,7 @@ memes = [
 module.exports = (robot) ->
   _(memes).each (data) ->
     robot.hear data.trigger, (msg) ->
+      return if msg.message.user.name.match /parbot/i
       params = {
         method: 'GET'
         url: 'http://version1.api.memegenerator.net/Instance_Create'
