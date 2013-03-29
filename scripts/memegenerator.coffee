@@ -10,14 +10,14 @@ memes = [
     generatorID: 414926
     imageID: 2295701
     text0: "PREPARE YOURSELF"
-    text1: null
+    text1: (match) -> match[1]
   }
   {
-    trigger: /(.+) all the things/i
+    trigger: /(.+) all the (.+)/i
     generatorID: 318065
     imageID: 1985197
-    text0: null
-    text1: "ALL THE THINGS"
+    text0: (match) -> match[1]
+    text1: (match) -> "ALL THE " + match[2]
   }
 ]
 
@@ -35,10 +35,11 @@ module.exports = (robot) ->
           languageCode: 'en'
           generatorID: data.generatorID
           imageID: data.imageID
-          text0: if data.text0 isnt null then data.text0 else msg.match[1]
-          text1: if data.text1 isnt null then data.text1 else msg.match[1] # TODO: shift a match off of msg.match
+          text0: if _.isFunction(data.text0) then data.text0(msg.match) else data.text0
+          text1: if _.isFunction(data.text1) then data.text1(msg.match) else data.text1
         }
       }
+
       Request.get params, (err, res, body) ->
         return console.log('err', err) if err
         body = JSON.parse body
