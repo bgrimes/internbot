@@ -4,6 +4,10 @@ _ = require 'underscore'
 username = process.env.MEMEGENERATOR_USERNAME
 password = process.env.MEMEGENERATOR_PASSWORD
 
+## Getting these ids are kind of a pain. The best way I've found to do it is by using
+## http://version1.api.memegenerator.net/Instances_Select_ByNew?languageCode=en&pageIndex=0&pageSize=12&urlName=Huge-Mistake
+## substituing "Huge-Mistake" for the url-name of the meme you want to use. Getting the url-name
+## is pretty easy, just search memegenerator.net and look at the address bar.
 memes = [
   {
     trigger: /prepare yourself,? (.+)/i
