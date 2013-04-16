@@ -30,6 +30,13 @@ memes = [
     text0: (match) -> match[1]
     text1: "HUGE MISTAKE"
   }
+  {
+    trigger: /not sure if (.+) or (.+)/i
+    generatorID: 305
+    imageID: 84688
+    text0: (match) -> "NOT SURE IF #{match[1]}"
+    text1: (match) -> "OR #{match[2]}"
+  }
 ]
 
 # Courage wolf: 303
