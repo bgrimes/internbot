@@ -17,13 +17,6 @@ memes = [
     text1: (match) -> match[1]
   }
   {
-    trigger: /(.+) all the (.+)/i
-    generatorID: 318065
-    imageID: 1985197
-    text0: (match) -> match[1]
-    text1: (match) -> "ALL THE " + match[2]
-  }
-  {
     trigger: /(.+) huge mistake/i
     generatorID: 1823497
     imageID: 7547342
