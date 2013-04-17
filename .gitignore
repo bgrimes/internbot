@@ -6,3 +6,4 @@ internbot.log
 log.txt
 nohup.out
 run.sh
+foreground.sh
