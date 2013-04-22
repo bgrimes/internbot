@@ -18,10 +18,10 @@ subs = [
     trigger: /food/i
     subreddit: 'foodporn'
   }
-  {
-    trigger: /aww/i
-    subreddit: 'aww'
-  }
+  #{
+    #trigger: /aww/i
+    #subreddit: 'aww'
+  #}
 ]
 
 module.exports = (robot) ->
