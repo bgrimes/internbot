@@ -22,8 +22,7 @@ module.exports = (robot) ->
       try
         $ = Cheerio.load body
         if message.match(/twitter.com\/[^\/]*\/status\/[\d]*$/) isnt null
-          tweet = $('.js-tweet-text')?.first()?.text()?.replace /[\s\n\r\t]+/g, ' '
-          return req.send "Tweet: #{tweet}" if tweet
+          return
         title = $('title')?.text()?.replace /[\s\n\r\t]+/g, ' '
         return if not title
         req.send "Title: #{title}"
