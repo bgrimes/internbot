@@ -3,7 +3,7 @@ _ = require 'underscore'
 
 subs = [
   {
-    trigger: /science/i
+    trigger: /!science/i
     subreddit: 'science'
   }
   {
@@ -11,11 +11,11 @@ subs = [
     subreddit: 'merica'
   }
   {
-    trigger: /beer/i
+    trigger: /!beer/i
     subreddit: 'beerporn'
   }
   {
-    trigger: /food/i
+    trigger: /!food/i
     subreddit: 'foodporn'
   }
   #{

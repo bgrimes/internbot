@@ -5,7 +5,7 @@ clean = (str) ->
   str.replace(/(\s|\r|\n)+/g, ' ').replace(/(^\s)|(\s$)/g, '')
 
 module.exports = (robot) ->
-  robot.hear /^!php (.*)$/, (msg) ->
+  robot.hear /!php (.*)$/, (msg) ->
     search = msg.match[1].replace /_/g, '-'
     url = "http://us2.php.net/manual/en/function.#{search}.php"
 
@@ -21,3 +21,5 @@ module.exports = (robot) ->
       msg.send desc
       msg.send "(#{url})"
 
+  robot.hear /!goto/, (msg) ->
+    msg.send "http://imgs.xkcd.com/comics/goto.png"

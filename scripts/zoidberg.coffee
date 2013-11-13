@@ -14,10 +14,10 @@ options =
   'headers':
     'User-Agent': 'User-Agent: Futuramabot for Hubot (+https://github.com/github/hubot-scripts)'
 
-## This could be improved, the whole jsdom stuff seems to cause hubot to hang for a while.
-console.log("Quotes? Why not zoidberg?")
-Scraper options, (err, $) ->
+Request.get 'http://en.wikiquote.org/wiki/Futurama', (err, res, body) ->
   return console.log err if err
+  $ = Cheerio.load body
+
   allQuotes = _($('dl').toArray()).map (dl) ->
     $(dl).text().trim()
 
@@ -29,6 +29,10 @@ Scraper options, (err, $) ->
     quotes.push(text)
 
   console.log "futurama quotes ready, #{allQuotes.length} quotes found"
+
+
+## This could be improved, the whole jsdom stuff seems to cause hubot to hang for a while.
+console.log("Quotes? Why not zoidberg?")
 
 module.exports = (robot) ->
   robot.hear /!zoidberg/, (msg) ->

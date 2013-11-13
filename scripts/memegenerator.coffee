@@ -35,9 +35,14 @@ memes = [
 # Courage wolf: 303
 
 module.exports = (robot) ->
-  _(memes).each (data) ->
-    robot.hear data.trigger, (msg) ->
+  robot.hear /!meme (.*)/, (msg) ->
+    text = msg.match[1]
+    _(memes).select (meme) -> # select stops execution after we find the first true return
       return if msg.message.user.name.match /parbot/i
+
+      match = meme.trigger.exec text
+      return false if not match
+
       params = {
         method: 'GET'
         url: 'http://version1.api.memegenerator.net/Instance_Create'
@@ -45,10 +50,10 @@ module.exports = (robot) ->
           username: username
           password: password
           languageCode: 'en'
-          generatorID: data.generatorID
-          imageID: data.imageID
-          text0: if _.isFunction(data.text0) then data.text0(msg.match) else data.text0
-          text1: if _.isFunction(data.text1) then data.text1(msg.match) else data.text1
+          generatorID: meme.generatorID
+          imageID: meme.imageID
+          text0: if _.isFunction(meme.text0) then meme.text0(match) else meme.text0
+          text1: if _.isFunction(meme.text1) then meme.text1(match) else meme.text1
         }
       }
 
@@ -58,4 +63,5 @@ module.exports = (robot) ->
         return console.log(body) if not body.result
         image = "http://cdn.memegenerator.net/instances/400x/#{body.result.instanceID}.jpg"
         msg.send image
-
+      
+      return true

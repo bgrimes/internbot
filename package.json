@@ -1,16 +1,21 @@
 {
-  "name": "internbot",
-  "version": "0.1.0",
+  "name": "internbot-new",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD",
   "dependencies": {
-    "hubot": "2.2.x",
-    "hubot-irc": "0.0.x",
-    "coffee-script": "1.3.x",
-    "jsdom": "0.2.x",
-    "jquery": "1.7.x",
-    "scraper": "0.0.9",
-    "request": "2.10.x",
-    "cheerio": "0.9.x",
-    "sprintf": "~0.1.1",
-    "hubot-hipchat": "~2.4.5-1"
+    "hubot-hipchat": "~2.4.5-1",
+    "hubot": "~2.5.0",
+    "request": "~2.20.0",
+    "underscore": "~1.4.4",
+    "cheerio": "~0.11.0",
+    "twit": "~1.1.6",
+    "scraper": "0.0.9"
   }
 }

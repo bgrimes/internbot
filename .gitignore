@@ -3,6 +3,7 @@ internbot.sh
 node_modules/
 test.sh
 internbot.log
+internbot.conf
 log.txt
 nohup.out
 run.sh
