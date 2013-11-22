@@ -8,3 +8,5 @@ log.txt
 nohup.out
 run.sh
 foreground.sh
+
+my*.sh
