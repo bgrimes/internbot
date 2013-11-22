@@ -1,1 +1,1 @@
-web: node_modules/hubot/bin/hubot --adapter hipchat
+hubot: node_modules/hubot/bin/hubot --adapter hipchat
