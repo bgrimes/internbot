@@ -17,6 +17,7 @@
     "twit": "~1.1.6",
     "scraper": "0.0.9",
     "hubot-hipchat": "~2.5.1-5",
-    "hubot": "~2.6.4"
+    "hubot": "~2.6.4",
+    "coffee-script": "~1.6.3"
   }
 }
