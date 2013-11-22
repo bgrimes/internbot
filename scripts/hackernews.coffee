@@ -20,7 +20,7 @@ NodePie = require("nodepie")
 hnFeedUrl = "https://news.ycombinator.com/rss"
 
 module.exports = (robot) ->
-  robot.respond /!(hn|hackernews)/i, (msg) ->
+  robot.hear /!(hn|hackernews)/i, (msg) ->
     msg.http(hnFeedUrl).get() (err, res, body) ->
       if res.statusCode is not 200
         console.log "Something's gone awry"
