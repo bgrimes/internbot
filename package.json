@@ -1,6 +1,7 @@
 {
   "name": "internbot-new",
   "version": "0.0.0",
+  "node": "0.10.22",
   "description": "ERROR: No README.md file found!",
   "main": "index.js",
   "scripts": {
