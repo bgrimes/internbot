@@ -2,10 +2,10 @@ Request = require 'request'
 _ = require 'underscore'
 
 subs = [
-  {
-    trigger: /!science/i
-    subreddit: 'science'
-  }
+  #{
+    #trigger: /!science/i
+    #subreddit: 'science'
+  #}
   {
     trigger: /'merica/i
     subreddit: 'merica'
@@ -37,7 +37,7 @@ module.exports = (robot) ->
         
         urls = [ ]
         for child in result.data.children
-          urls.push(child.data.url)
+          urls.push(child.data.url) if child.data.thumbnail isnt 'self'
           
         rnd = Math.floor(Math.random()*urls.length)
         msg.send urls[rnd]
