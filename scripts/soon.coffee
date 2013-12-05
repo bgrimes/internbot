@@ -6,6 +6,12 @@ soons = [
   "http://i3.kym-cdn.com/photos/images/newsfeed/000/117/022/enhanced-buzz-28904-1301694302-1.jpg"
 ]
 
+shoons = [
+  "http://static.fjcdn.com/pictures/Shoon_9958ef_3492839.jpg"
+]
+
 module.exports = (robot) ->
   robot.hear /SOON/, (msg) ->
     msg.send msg.random soons
+  robot.hear /shoon/i, (msg) ->
+    msg.send msg.random shoons
