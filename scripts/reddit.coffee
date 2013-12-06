@@ -18,6 +18,10 @@ subs = [
     trigger: /!food/i
     subreddit: 'foodporn'
   }
+  {
+    trigger: /what could(.*)go wrong/
+    subreddit: 'whatcouldgowrong'
+  }
   #{
     #trigger: /aww/i
     #subreddit: 'aww'
