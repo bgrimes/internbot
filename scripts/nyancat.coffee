@@ -8,3 +8,11 @@ module.exports = (robot) ->
       nyancat += '(nyan)'
     nyancat += '(cat)'
     msg.send nyancat
+
+  robot.hear /!nyanian/, (msg) ->
+    nyancat = ''
+    nyans = _.random(5, 20)
+    _(nyans).times ->
+      nyancat += '(nyan)'
+    nyancat += '(ian)'
+    msg.send nyancat
